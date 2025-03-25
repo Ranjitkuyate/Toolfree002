@@ -1,18 +1,12 @@
-import React from "react";
-import { useAds } from "./AdManager";
+interface AdSettingsProps {
+  adsEnabled: boolean;
+  toggleAdsEnabled: () => void;
+}
 
-const AdSettings = () => {
-  const { adsEnabled, toggleAds } = useAds(); // Corrected function name
-
-  return (
-    <div>
-      <h2>Ad Settings</h2>
-      <p>Ads are currently {adsEnabled ? "enabled" : "disabled"}.</p>
-      <button onClick={toggleAds}>
-        {adsEnabled ? "Disable Ads" : "Enable Ads"}
-      </button>
-    </div>
-  );
-};
+const AdSettings: React.FC<AdSettingsProps> = ({ adsEnabled, toggleAdsEnabled }) => (
+  <button onClick={toggleAdsEnabled}>
+    {adsEnabled ? "Disable Ads" : "Enable Ads"}
+  </button>
+);
 
 export default AdSettings;
