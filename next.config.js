@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
-    serverActions: {} // ✅ FIXED: Changed from `true` to an empty object `{}`.
+    serverActions: {} // ✅ Fixed (kept as an object)
   }
 };
 
