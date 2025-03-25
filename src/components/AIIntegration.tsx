@@ -1,126 +1,64 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const AIIntegration = () => {
-  const [apiKey, setApiKey] = useState('');
-  const [prompt, setPrompt] = useState('');
-  const [response, setResponse] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [isConfigured, setIsConfigured] = useState(false);
-  const [model, setModel] = useState('gemini-2.0-flash');
+const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
 
-  const handleConfigureAPI = () => {
-    if (!apiKey.trim()) {
-      setError('Please enter a valid API key');
-      return;
-    }
+const AIIntegration: React.FC = () => {
+    const [inputText, setInputText] = useState("");
+    const [outputText, setOutputText] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-    setIsLoading(true);
-    setError('');
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const genModel = genAI.getGenerativeModel({ model });
+    const handleGenerate = async () => {
+        if (!API_KEY) {
+            setError("API key is missing. Please configure it.");
+            return;
+        }
 
-    genModel.generateContent('Hello, world!')
-      .then(() => {
-        setIsConfigured(true);
-        setIsLoading(false);
-        setError('');
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        setError(`API key validation failed: ${err.message}`);
-        setIsConfigured(false);
-      });
-  };
+        setIsLoading(true);
+        setError(null);
 
-  const handleSubmitPrompt = async () => {
-    if (!prompt.trim()) {
-      setError('Please enter a prompt');
-      return;
-    }
+        try {
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    if (!isConfigured) {
-      setError('Please configure your API key first');
-      return;
-    }
+            const result = await model.generateContent(inputText);
+            const response = await result.response;
+            const text = response.text();
 
-    setIsLoading(true);
-    setError('');
-    setResponse('');
+            setOutputText(text);
+        } catch (err: any) {
+            setError(`Error generating content: ${err.message || "Unknown error"}`);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-    try {
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const genModel = genAI.getGenerativeModel({ model });
-
-      const result = await genModel.generateContent(prompt);
-      const text = result.response.text();
-      setResponse(text);
-      setIsLoading(false);
-    } catch (err) {
-      setIsLoading(false);
-      setError(`Error generating content: ${err.message}`);
-    }
-  };
-
-  return (
-    <Container>
-      <Header>
-        <h2>Google Gemini AI Integration</h2>
-      </Header>
-
-      <Section>
-        <h3>API Configuration</h3>
-        <input
-          type="password"
-          value={apiKey}
-          onChange={(e) => setApiKey(e.target.value)}
-          placeholder="Enter your Gemini API key"
-        />
-        <button onClick={handleConfigureAPI} disabled={isLoading}>
-          {isConfigured ? 'Configured' : 'Configure API'}
-        </button>
-      </Section>
-
-      <Section>
-        <h3>Test Gemini AI</h3>
-        <textarea
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Enter your prompt here..."
-          rows={4}
-        />
-        <button onClick={handleSubmitPrompt} disabled={!isConfigured || isLoading}>
-          {isLoading ? 'Generating...' : 'Generate Response'}
-        </button>
-      </Section>
-
-      {response && <Response>{response}</Response>}
-      {error && <Error>{error}</Error>}
-    </Container>
-  );
+    return (
+        <div className="max-w-lg mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4">AI Text Generator</h2>
+            <textarea
+                className="w-full p-2 border rounded-md"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Enter text to generate..."
+            />
+            <button
+                className="mt-2 w-full bg-blue-500 text-white p-2 rounded-md disabled:bg-gray-400"
+                onClick={handleGenerate}
+                disabled={isLoading}
+            >
+                {isLoading ? "Generating..." : "Generate"}
+            </button>
+            {error && <p className="text-red-500 mt-2">{error}</p>}
+            {outputText && (
+                <div className="mt-4 p-3 bg-white border rounded-md">
+                    <h3 className="text-lg font-medium">Generated Output:</h3>
+                    <p className="mt-2">{outputText}</p>
+                </div>
+            )}
+        </div>
+    );
 };
-
-const Container = styled.div`
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-`;
-const Header = styled.div`
-  text-align: center;
-`;
-const Section = styled.div`
-  margin-bottom: 20px;
-`;
-const Response = styled.pre`
-  background: #f4f4f4;
-  padding: 10px;
-  border-radius: 5px;
-`;
-const Error = styled.div`
-  color: red;
-  font-weight: bold;
-`;
 
 export default AIIntegration;
