@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4a6cf7;
+  --secondary-color: #6a89ff;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --border-color: #e0e0e0;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Global styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Button styles */
+.btn {
+  @apply px-4 py-2 rounded font-medium transition-all;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:opacity-90;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white hover:opacity-90;
+}
+
+.btn-outline {
+  @apply border border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded shadow p-4;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-2 border border-border rounded focus:outline-none focus:border-primary;
+}
+
+.form-label {
+  @apply block mb-2 font-medium;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+/* Section styles */
+.section {
+  @apply py-8;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-6 text-center;
+}

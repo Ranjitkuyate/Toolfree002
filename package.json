@@ -1,0 +1,51 @@
+{
+  "name": "toolsfree-online",
+  "version": "1.0.0",
+  "description": "A comprehensive online tools website with 30+ free tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "tools",
+    "online",
+    "free",
+    "converter",
+    "generator",
+    "calculator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "autoprefixer": "^10.4.21",
+    "browser-image-compression": "^2.0.2",
+    "compressorjs": "^1.2.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-sonarjs": "^3.0.2",
+    "next": "^15.2.3",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "styled-components": "^6.1.16",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard": "^37.0.0",
+    "tailwindcss": "^4.0.15",
+    "typescript-eslint": "^8.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.13",
+    "@types/react": "19.0.12",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "eslint": "^9.23.0",
+    "eslint-plugin-react": "^7.37.4"
+  }
+}
