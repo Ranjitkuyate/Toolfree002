@@ -2,7 +2,6 @@
   "name": "toolsfree-online",
   "version": "1.0.0",
   "description": "A comprehensive online tools website with 30+ free tools",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
