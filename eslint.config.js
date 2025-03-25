@@ -1,6 +1,11 @@
 {
   "root": true,
-  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "plugins": ["@typescript-eslint", "react"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
