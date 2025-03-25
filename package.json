@@ -1,7 +1,7 @@
 {
   "name": "toolsfree-online",
   "version": "1.0.0",
-  "description": "A comprehensive online tools website with 30+ free tools",
+  "description": "A comprehensive online tools website",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -9,19 +9,9 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": [
-    "tools",
-    "online",
-    "free",
-    "converter",
-    "generator",
-    "calculator"
-  ],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "@google/generative-ai": "^0.24.0",
-    "express": "^4.18.2"
     "autoprefixer": "^10.4.21",
     "browser-image-compression": "^2.0.2",
     "compressorjs": "^1.2.1",
@@ -39,8 +29,7 @@
     "stylelint": "^16.16.0",
     "stylelint-config-standard": "^37.0.0",
     "tailwindcss": "^4.0.15",
-    "typescript-eslint": "^8.27.0",
-    "pg-promise": "^10.12.1"
+    "typescript-eslint": "^8.27.0"
   },
   "devDependencies": {
     "@types/node": "22.13.13",
