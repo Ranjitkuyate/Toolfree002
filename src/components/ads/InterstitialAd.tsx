@@ -1,18 +1,11 @@
-import React from "react";
-
-interface AdProps {
-  adPreferences: {
-    showInterstitial: boolean;
-    frequency: number;
-  };
+interface InterstitialAdProps {
+  adPreferences?: Record<string, any>; // Fix: Ensure `adPreferences` exists
 }
 
-const InterstitialAd: React.FC<AdProps> = ({ adPreferences }) => {
-  if (!adPreferences.showInterstitial) return null;
-
+const InterstitialAd: React.FC<InterstitialAdProps> = ({ adPreferences }) => {
   return (
-    <div className="interstitial-ad">
-      <p>Interstitial Ad Displayed!</p>
+    <div>
+      {adPreferences ? <p>Ad Preferences Loaded</p> : <p>No Preferences Set</p>}
     </div>
   );
 };
