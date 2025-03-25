@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    serverActions: {} // ✅ Fixed (kept as an object)
-  }
+    serverActions: {}, // Fix: Must be an object (not boolean)
+  },
 };
 
 module.exports = nextConfig;
