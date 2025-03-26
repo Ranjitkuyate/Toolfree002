@@ -58,17 +58,13 @@ const AllInOneDownloader = () => {
     setIsLoading(true);
     setError('');
     
-    // Simulate API call to download service
     setTimeout(() => {
       setIsLoading(false);
-      
-      // In a real implementation, this would call an actual download API
-      // For this demo, we'll simulate a successful download
       setDownloadLink(`#demo-download-${platform}-${quality}-${format}`);
     }, 2000);
   };
   
-  // Handle demo download (for demonstration purposes)
+  // Handle demo download
   const handleDemoDownload = () => {
     alert('In a real implementation, this would download the actual file. This is a demo version.');
   };
@@ -76,50 +72,33 @@ const AllInOneDownloader = () => {
   // Get platform icon
   const getPlatformIcon = () => {
     switch (platform) {
-      case 'youtube':
-        return 'fab fa-youtube';
-      case 'facebook':
-        return 'fab fa-facebook';
-      case 'instagram':
-        return 'fab fa-instagram';
-      case 'twitter':
-        return 'fab fa-twitter';
-      case 'tiktok':
-        return 'fab fa-tiktok';
-      case 'pinterest':
-        return 'fab fa-pinterest';
-      case 'soundcloud':
-        return 'fab fa-soundcloud';
-      default:
-        return 'fas fa-link';
+      case 'youtube': return 'fab fa-youtube';
+      case 'facebook': return 'fab fa-facebook';
+      case 'instagram': return 'fab fa-instagram';
+      case 'twitter': return 'fab fa-twitter';
+      case 'tiktok': return 'fab fa-tiktok';
+      case 'pinterest': return 'fab fa-pinterest';
+      case 'soundcloud': return 'fab fa-soundcloud';
+      default: return 'fas fa-link';
     }
   };
   
   // Get platform name
   const getPlatformName = () => {
     switch (platform) {
-      case 'youtube':
-        return 'YouTube';
-      case 'facebook':
-        return 'Facebook';
-      case 'instagram':
-        return 'Instagram';
-      case 'twitter':
-        return 'Twitter';
-      case 'tiktok':
-        return 'TikTok';
-      case 'pinterest':
-        return 'Pinterest';
-      case 'soundcloud':
-        return 'SoundCloud';
-      case 'other':
-        return 'Unsupported Platform';
-      default:
-        return '';
+      case 'youtube': return 'YouTube';
+      case 'facebook': return 'Facebook';
+      case 'instagram': return 'Instagram';
+      case 'twitter': return 'Twitter';
+      case 'tiktok': return 'TikTok';
+      case 'pinterest': return 'Pinterest';
+      case 'soundcloud': return 'SoundCloud';
+      case 'other': return 'Unsupported Platform';
+      default: return '';
     }
   };
   
-  // Get available formats based on platform
+  // Get available formats
   const getAvailableFormats = () => {
     switch (platform) {
       case 'youtube':
@@ -202,9 +181,7 @@ const AllInOneDownloader = () => {
         {downloadLink && (
           <DownloadResult>
             <SuccessIcon className="fas fa-check-circle" />
-            <DownloadMessage>
-              Your download is ready!
-            </DownloadMessage>
+            <DownloadMessage>Your download is ready!</DownloadMessage>
             <DownloadLink href={downloadLink} onClick={handleDemoDownload}>
               <i className="fas fa-download"></i> Download {platform === 'soundcloud' ? 'Audio' : platform === 'pinterest' ? (format === 'jpg' || format === 'png' ? 'Image' : 'Video') : 'Video'}
             </DownloadLink>
@@ -216,7 +193,7 @@ const AllInOneDownloader = () => {
         <h2>Supported Platforms</h2>
         <PlatformsGrid>
           <PlatformCard>
-            <PlatformLogo className="fab fa-youtube" youtube />
+            <PlatformLogo className="fab fa-youtube" />
             <PlatformCardTitle>YouTube</PlatformCardTitle>
             <PlatformCardDescription>
               Download videos in MP4, WebM formats or extract audio in MP3, AAC formats
@@ -224,7 +201,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-facebook" facebook />
+            <PlatformLogo className="fab fa-facebook" />
             <PlatformCardTitle>Facebook</PlatformCardTitle>
             <PlatformCardDescription>
               Download videos, reels, and stories in multiple formats and qualities
@@ -232,7 +209,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-instagram" instagram />
+            <PlatformLogo className="fab fa-instagram" />
             <PlatformCardTitle>Instagram</PlatformCardTitle>
             <PlatformCardDescription>
               Download posts, reels, stories, and IGTV videos in high quality
@@ -240,7 +217,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-twitter" twitter />
+            <PlatformLogo className="fab fa-twitter" />
             <PlatformCardTitle>Twitter</PlatformCardTitle>
             <PlatformCardDescription>
               Download videos and GIFs from tweets in multiple formats
@@ -248,7 +225,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-tiktok" tiktok />
+            <PlatformLogo className="fab fa-tiktok" />
             <PlatformCardTitle>TikTok</PlatformCardTitle>
             <PlatformCardDescription>
               Download TikTok videos without watermark in high quality
@@ -256,7 +233,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-pinterest" pinterest />
+            <PlatformLogo className="fab fa-pinterest" />
             <PlatformCardTitle>Pinterest</PlatformCardTitle>
             <PlatformCardDescription>
               Download pins, images, and videos in original quality
@@ -264,7 +241,7 @@ const AllInOneDownloader = () => {
           </PlatformCard>
           
           <PlatformCard>
-            <PlatformLogo className="fab fa-soundcloud" soundcloud />
+            <PlatformLogo className="fab fa-soundcloud" />
             <PlatformCardTitle>SoundCloud</PlatformCardTitle>
             <PlatformCardDescription>
               Download tracks and playlists in MP3 and AAC formats
@@ -371,13 +348,11 @@ const Container = styled.div`
 const ToolHeader = styled.div`
   text-align: center;
   margin-bottom: 2rem;
-  
   h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
   }
-  
   p {
     font-size: 1.1rem;
     color: #666;
@@ -390,7 +365,6 @@ const ToolSection = styled.div`
   box-shadow: var(--box-shadow);
   padding: 2rem;
   margin-bottom: 2rem;
-  
   h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -401,7 +375,6 @@ const ToolSection = styled.div`
 const InputGroup = styled.div`
   display: flex;
   margin-bottom: 1rem;
-  
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -411,7 +384,6 @@ const InputWithIcon = styled.div`
   position: relative;
   flex: 1;
   margin-right: 1rem;
-  
   i {
     position: absolute;
     left: 1rem;
@@ -419,20 +391,17 @@ const InputWithIcon = styled.div`
     transform: translateY(-50%);
     color: #666;
   }
-  
   input {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
-    
     &:focus {
       outline: none;
       border-color: var(--primary-color);
     }
   }
-  
   @media (max-width: 768px) {
     margin-right: 0;
     margin-bottom: 1rem;
@@ -448,16 +417,13 @@ const DownloadButton = styled.button`
   font-size: 1rem;
   cursor: pointer;
   transition: var(--transition);
-  
   &:hover {
     opacity: 0.9;
   }
-  
   &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
-  
   @media (max-width: 768px) {
     padding: 1rem;
   }
@@ -504,14 +470,12 @@ const OptionGroup = styled.div`
     margin-bottom: 0.5rem;
     font-weight: 500;
   }
-  
   select {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
-    
     &:focus {
       outline: none;
       border-color: var(--primary-color);
@@ -550,15 +514,113 @@ const DownloadLink = styled.a`
   border-radius: var(--border-radius);
   font-weight: 500;
   transition: var(--transition);
-  
   i {
     margin-right: 0.5rem;
   }
-  
   &:hover {
     opacity: 0.9;
   }
 `;
 
 const PlatformsGrid = styled.div`
-<response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with `grep -n` in order to find the line numbers of what you are looking for.</NOTE>
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+`;
+
+const PlatformCard = styled.div`
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+`;
+
+const PlatformLogo = styled.i`
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+`;
+
+const PlatformCardTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+`;
+
+const PlatformCardDescription = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+`;
+
+const InstructionsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+`;
+
+const InstructionCard = styled.div`
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+`;
+
+const InstructionIcon = styled.i`
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+`;
+
+const InstructionStep = styled.div`
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+`;
+
+const InstructionTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+`;
+
+const InstructionDescription = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+`;
+
+const FeatureGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+`;
+
+const FeatureCard = styled.div`
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+`;
+
+const FeatureIcon = styled.i`
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+`;
+
+const FeatureTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+`;
+
+const FeatureDescription = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+`;
+
+export default AllInOneDownloader;
