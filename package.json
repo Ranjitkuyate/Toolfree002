@@ -19,7 +19,6 @@
     "eslint": "8.56.0",
     "eslint-plugin-react": "7.34.0",
     "eslint-config-next": "14.1.4",
-    "@netlify/plugin-cache": "^1.0.0",
     "@netlify/plugin-nextjs": "^4.34.0",
     "@netlify/plugin-lighthouse": "^4.1.2"
   }
