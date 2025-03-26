@@ -1,23 +1,12 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  environment = { GO_VERSION = "1.19", NODE_VERSION = "18" }
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[build.processing]
-  skip_processing = false
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_VERSION = "9"
-  GO_VERSION = "1.19"
 
-[functions]
-  directory = "netlify/functions"
+[context.production.environment]
+  NODE_VERSION = "18"
 
-[dev]
-  command = "npm run dev"
-  framework = "next"
-  targetPort = 3000
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
