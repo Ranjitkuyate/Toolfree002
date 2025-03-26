@@ -1,7 +1,27 @@
 [build]
   command = "npm run build"
   publish = ".next"
-[build][build][build]
+[build][build][build][build]
+  command = "npm run build"
+    publish = ".next"
+
+    [[plugins]]
+      package = "@netlify/next"
+
+      [build.environment]
+        NEXT_USE_NETLIFY_EDGE = "true"
+          NODE_VERSION = "18"
+
+          # Uncomment and update this when you have your Propeller Ads ID
+          # [context.production.environment]
+          #   NEXT_PUBLIC_PROPELLER_ADS_ID = "your-propeller-ads-id-here"
+
+          # For branch deploys and pull requests
+          [context.branch-deploy]
+            command = "npm run build"
+
+            [context.deploy-preview]
+              command = "npm run build"
   command = "npm run build"
     publish = ".next"
 
