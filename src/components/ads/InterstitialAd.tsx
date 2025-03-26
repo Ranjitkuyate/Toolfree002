@@ -1,11 +1,10 @@
-interface InterstitialAdProps {
-  adPreferences?: Record<string, any>; // Fix: Ensure `adPreferences` exists
-}
+import React from "react";
 
-const InterstitialAd: React.FC<InterstitialAdProps> = ({ adPreferences }) => {
+const InterstitialAd = () => {
   return (
     <div>
-      {adPreferences ? <p>Ad Preferences Loaded</p> : <p>No Preferences Set</p>}
+      <h2>Interstitial Ad</h2>
+      <p>This is an interstitial ad.</p>
     </div>
   );
 };
