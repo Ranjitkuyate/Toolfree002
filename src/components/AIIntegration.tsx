@@ -1,64 +1,142 @@
-import React, { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
+interface AIIntegrationProps {
+  className?: string;
+}
 
-const AIIntegration: React.FC = () => {
-    const [inputText, setInputText] = useState("");
-    const [outputText, setOutputText] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+const AIIntegration: React.FC<AIIntegrationProps> = ({ 
+  className = '' 
+}) => {
+  const [query, setQuery] = useState<string>('');
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [response, setResponse] = useState<string | null>(null);
 
-    const handleGenerate = async () => {
-        if (!API_KEY) {
-            setError("API key is missing. Please configure it.");
-            return;
-        }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!query.trim()) return;
+    
+    setIsProcessing(true);
+    
+    // Simulate AI processing
+    setTimeout(() => {
+      setResponse(`Here's some information about "${query}". This is a simulated response from Google Gemini AI integration. In the actual implementation, this would connect to the Gemini API and return real results based on the user's query.`);
+      setIsProcessing(false);
+    }, 1500);
+  };
 
-        setIsLoading(true);
-        setError(null);
-
-        try {
-            const genAI = new GoogleGenerativeAI(API_KEY);
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-            const result = await model.generateContent(inputText);
-            const response = await result.response;
-            const text = response.text();
-
-            setOutputText(text);
-        } catch (err: any) {
-            setError(`Error generating content: ${err.message || "Unknown error"}`);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    return (
-        <div className="max-w-lg mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">AI Text Generator</h2>
-            <textarea
-                className="w-full p-2 border rounded-md"
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                placeholder="Enter text to generate..."
-            />
-            <button
-                className="mt-2 w-full bg-blue-500 text-white p-2 rounded-md disabled:bg-gray-400"
-                onClick={handleGenerate}
-                disabled={isLoading}
-            >
-                {isLoading ? "Generating..." : "Generate"}
-            </button>
-            {error && <p className="text-red-500 mt-2">{error}</p>}
-            {outputText && (
-                <div className="mt-4 p-3 bg-white border rounded-md">
-                    <h3 className="text-lg font-medium">Generated Output:</h3>
-                    <p className="mt-2">{outputText}</p>
-                </div>
-            )}
-        </div>
-    );
+  return (
+    <AIContainer className={className}>
+      <AIHeader>
+        <AITitle>AI Assistant</AITitle>
+        <AISubtitle>Powered by Google Gemini</AISubtitle>
+      </AIHeader>
+      
+      <QueryForm onSubmit={handleSubmit}>
+        <QueryInput 
+          type="text" 
+          value={query} 
+          onChange={(e) => setQuery(e.target.value)} 
+          placeholder="Ask anything..." 
+          disabled={isProcessing}
+        />
+        <SubmitButton type="submit" disabled={isProcessing}>
+          {isProcessing ? 'Processing...' : 'Ask AI'}
+        </SubmitButton>
+      </QueryForm>
+      
+      {response && (
+        <ResponseContainer>
+          <ResponseTitle>AI Response:</ResponseTitle>
+          <ResponseText>{response}</ResponseText>
+        </ResponseContainer>
+      )}
+    </AIContainer>
+  );
 };
+
+const AIContainer = styled.div`
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+`;
+
+const AIHeader = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const AITitle = styled.h3`
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem 0;
+  color: #8e44ad;
+`;
+
+const AISubtitle = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+`;
+
+const QueryForm = styled.form`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+const QueryInput = styled.input`
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #8e44ad;
+  }
+  
+  &:disabled {
+    background-color: #f0f0f0;
+  }
+`;
+
+const SubmitButton = styled.button`
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #7d3c98;
+  }
+  
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+`;
+
+const ResponseContainer = styled.div`
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1rem;
+`;
+
+const ResponseTitle = styled.div`
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+`;
+
+const ResponseText = styled.p`
+  margin: 0;
+  line-height: 1.5;
+  color: #444;
+`;
 
 export default AIIntegration;
