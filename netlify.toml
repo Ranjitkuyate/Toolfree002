@@ -1,25 +1,25 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18.20.7"
   NPM_VERSION = "10.8.2"
-  NEXT_PUBLIC_SITE_URL = "https://toolsfree.online"
-
-[context.production.environment]
-  NODE_ENV = "production"
-
-[context.deploy-preview.environment]
-  NODE_ENV = "development"
 
 [dev]
+  framework = "next"
   command = "npm run dev"
   targetPort = 3000
-  framework = "next"
+  port = 8888
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[redirects]]
   from = "/*"
