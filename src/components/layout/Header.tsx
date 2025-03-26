@@ -1,171 +1,175 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { FaSearch, FaBars, FaTimes, FaUser } from 'react-icons/fa';
+import styled from 'styled-components';
+import { FaTools, FaSearch, FaInfoCircle, FaBook } from 'react-icons/fa';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
-
+const Header: React.FC = () => {
   return (
-    <header className="navbar">
-      <div className="navbar-container">
-        {/* Logo */}
-        <div className="navbar-logo">
-          <Link href="/" className="flex items-center">
-            <div className="relative w-40 h-10">
-              <Image 
-                src="/images/logo.svg" 
-                alt="ToolsFree Online Logo" 
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+    <HeaderContainer>
+      <HeaderContent>
+        <LogoContainer>
+          <Link href="/">
+            <Logo>
+              <FaTools />
+              <LogoText>ToolsFree</LogoText>
+            </Logo>
           </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="navbar-menu">
-          <Link href="/" className="navbar-link-active">
-            Home
-          </Link>
-          <Link href="/tools/text/text-to-speech" className="navbar-link">
-            Text to Speech
-          </Link>
-          <Link href="/tools/image/image-compressor" className="navbar-link">
-            Image Compressor
-          </Link>
-          <Link href="/tools/video/all-in-one-downloader" className="navbar-link">
-            All-in-One Downloader
-          </Link>
-          <Link href="/tools/video/video-editor" className="navbar-link">
-            Video Editor
-          </Link>
-          <Link href="/about" className="navbar-link">
-            About
-          </Link>
-          <Link href="/contact" className="navbar-link">
-            Contact
-          </Link>
-        </nav>
-
-        {/* Desktop Search & User */}
-        <div className="hidden md:flex items-center space-x-4">
-          <button 
-            onClick={() => setIsSearchOpen(!isSearchOpen)}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-            aria-label="Search"
-          >
-            <FaSearch className="text-gray-600" />
-          </button>
-          <Link href="/login" className="btn-outline">
-            <FaUser className="mr-2" /> Login
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? (
-              <FaTimes className="text-gray-600 w-6 h-6" />
-            ) : (
-              <FaBars className="text-gray-600 w-6 h-6" />
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Search Bar (Expanded) */}
-      {isSearchOpen && (
-        <div className="bg-white py-3 px-4 shadow-md animate-slide-up">
-          <div className="container-custom">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search for tools..."
-                className="input pr-10"
-                autoFocus
-              />
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <FaSearch className="text-gray-400" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Mobile Menu (Expanded) */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md animate-slide-up">
-          <nav className="container-custom py-4 flex flex-col space-y-3">
-            <Link 
-              href="/" 
-              className="navbar-link-active py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
+        </LogoContainer>
+        
+        <Navigation>
+          <NavItem>
+            <Link href="/">
+              <NavLink>Home</NavLink>
             </Link>
-            <Link 
-              href="/tools/text/text-to-speech" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Text to Speech
+          </NavItem>
+          <NavItem>
+            <Link href="/tools">
+              <NavLink>Tools</NavLink>
             </Link>
-            <Link 
-              href="/tools/image/image-compressor" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Image Compressor
+          </NavItem>
+          <NavItem>
+            <Link href="/about">
+              <NavLink>About</NavLink>
             </Link>
-            <Link 
-              href="/tools/video/all-in-one-downloader" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              All-in-One Downloader
+          </NavItem>
+          <NavItem>
+            <Link href="/documentation">
+              <NavLink>Docs</NavLink>
             </Link>
-            <Link 
-              href="/tools/video/video-editor" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Video Editor
-            </Link>
-            <Link 
-              href="/about" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              href="/contact" 
-              className="navbar-link py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <div className="pt-2 border-t border-gray-100">
-              <Link 
-                href="/login" 
-                className="btn-primary w-full justify-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <FaUser className="mr-2" /> Login
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
-    </header>
+          </NavItem>
+        </Navigation>
+        
+        <SearchContainer>
+          <SearchInput placeholder="Search tools..." />
+          <SearchButton>
+            <FaSearch />
+          </SearchButton>
+        </SearchContainer>
+      </HeaderContent>
+    </HeaderContainer>
   );
 };
+
+const HeaderContainer = styled.header`
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+`;
+
+const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Logo = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a90e2;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+`;
+
+const LogoText = styled.span`
+  color: #333;
+`;
+
+const Navigation = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+const NavItem = styled.li``;
+
+const NavLink = styled.a`
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+  
+  &:hover {
+    color: #4a90e2;
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #4a90e2;
+    transition: width 0.3s;
+  }
+  
+  &:hover:after {
+    width: 100%;
+  }
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const SearchInput = styled.input`
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  
+  &:focus {
+    border-color: #4a90e2;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const SearchButton = styled.button`
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #3a80d2;
+  }
+`;
 
 export default Header;
