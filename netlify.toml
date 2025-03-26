@@ -1,21 +1,25 @@
-# Netlify Configuration File
-
 [build]
-  base = "/"                # Root directory of the project
-  publish = ".next"         # Directory to publish (for Next.js)
-  command = "npm install && npm run build"  # Build command
+  command = "npm run build"
+  publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18.20.7"   # Node.js version
-  NPM_VERSION = "10.8.2"     # npm version
-  NEXT_PUBLIC_SITE_URL = "https://toolsfree.netlify.app"  # Public site URL
+  NODE_VERSION = "18.20.7"
+  NPM_VERSION = "10.8.2"
+  NEXT_PUBLIC_SITE_URL = "https://toolsfree.online"
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
 
 [dev]
-  command = "npm run dev"   # Command for local Netlify dev server
-  port = 8888               # Port for local development
+  command = "npm run dev"
+  targetPort = 3000
+  framework = "next"
 
-[functions]
-  directory = "netlify/functions"  # Directory for Netlify serverless functions
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [[redirects]]
   from = "/*"
