@@ -1,14 +1,12 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "18"
-  GO_VERSION = "1.21"  # Change Go version to a supported one
 
 [context.production.environment]
   NODE_VERSION = "18"
-  GO_VERSION = "1.21"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[context.deploy-preview.environment]
+  NODE_VERSION = "18"
