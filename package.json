@@ -17,7 +17,8 @@
     "postcss": "^8.4.33",
     "sharp": "^0.33.2",
     "@google/generative-ai": "^0.21.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "compressorjs": "^1.2.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.27",
