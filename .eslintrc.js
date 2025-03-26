@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["next", "eslint:recommended"],
+  extends: ["next/core-web-vitals", "eslint:recommended"],
   parserOptions: {
     ecmaVersion: 2020,
   },
