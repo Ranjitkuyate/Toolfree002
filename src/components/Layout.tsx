@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Header from './Header';
+import Header from './Header'; // Same directory
 import Footer from './Footer';
 import styled from 'styled-components';
 
@@ -18,12 +18,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
-      
       <MainContainer>
         <Header />
-        <MainContent>
-          {children}
-        </MainContent>
+        <MainContent>{children}</MainContent>
         <Footer />
       </MainContainer>
     </>
@@ -31,15 +28,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 };
 
 const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;
-
-const MainContent = styled.main`
-  flex: 1;
-  background-color: var(--background-color);
-`;
-
-export default Layout;
-
+  display
