@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/SectionTitle';
 import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 import AdBanner from '@/components/AdBanner';
