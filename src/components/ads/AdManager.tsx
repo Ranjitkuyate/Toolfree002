@@ -1,12 +1,19 @@
-import React from "react";
+import { useState, useEffect } from 'react';
 
-const AdManager = () => {
-  return (
-    <div>
-      <h2>Ad Manager</h2>
-      <p>Manage ad preferences here.</p>
-    </div>
-  );
+export const useAds = () => {
+  const [adData, setAdData] = useState({ loaded: false, revenue: 0 });
+
+  useEffect(() => {
+    // Simulate ad loading (replace with your actual ad logic if different)
+    setTimeout(() => {
+      setAdData({ loaded: true, revenue: 100 });
+    }, 1000);
+  }, []);
+
+  return adData;
 };
 
-export default AdManager;
+export default function AdManager() {
+  const ads = useAds();
+  return null; // Or render something if needed
+}
