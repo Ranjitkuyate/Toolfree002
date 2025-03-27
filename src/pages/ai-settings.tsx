@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AIIntegration from '@/components/AIIntegration';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout'; // Corrected path
 import SectionTitle from '@/components/SectionTitle';
 import AdBanner from '@/components/AdBanner';
 
