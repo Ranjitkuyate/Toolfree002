@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout'; // Corrected path
 import SEO from '@/components/SEO';
 import AllInOneDownloader from '@/components/tools/video/AllInOneDownloader';
 import AdBanner from '@/components/AdBanner';
