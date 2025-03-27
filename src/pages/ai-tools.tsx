@@ -1,20 +1,27 @@
 import React from 'react';
-import Layout from '@/components/Layout';
-import SEO from '@/components/SEO';
+import styled from 'styled-components';
 import AIIntegration from '@/components/AIIntegration';
+import Layout from '@/components/layout/Layout'; // Corrected path
+import SectionTitle from '@/components/SectionTitle';
+import AdBanner from '@/components/AdBanner';
 
-const AIToolsPage = () => {
+const AITools = () => {
   return (
     <Layout>
-      <SEO 
-        title="AI Tools - ToolsFree Online"
-        description="Access powerful AI tools powered by Google Gemini. Generate text, solve problems, and get creative assistance with our free AI tools."
-        keywords="AI tools, Google Gemini, artificial intelligence, text generation, AI assistant, free AI tools"
-        canonical="/ai-tools"
-      />
-      <AIIntegration />
+      <div className="container">
+        <SectionTitle 
+          title="AI Tools" 
+          subtitle="Access powerful AI capabilities powered by Google Gemini"
+        />
+        
+        <AdBanner position="top" size="medium" />
+        
+        <AIIntegration />
+        
+        <AdBanner position="bottom" size="medium" />
+      </div>
     </Layout>
   );
 };
 
-export default AIToolsPage;
+export default AITools;
