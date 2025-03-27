@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/Layout'; // Corrected path
 import SectionTitle from '@/components/SectionTitle';
 import AdBanner from '@/components/AdBanner';
 
@@ -10,4 +10,5 @@ const About = () => (
     <AdBanner />
   </Layout>
 );
+
 export default About;
