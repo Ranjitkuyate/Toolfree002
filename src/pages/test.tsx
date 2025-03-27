@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout'; // Corrected path
 import SectionTitle from '@/components/SectionTitle';
 import AdBanner from '@/components/AdBanner';
 
@@ -12,7 +12,6 @@ const TestPage = () => {
     setIsRunningTests(true);
     setTestResults([]);
     
-    // Simulate running tests
     setTimeout(() => {
       const results = [
         { name: 'Homepage Load Time', status: 'passed', value: '0.8s', target: '< 1s' },
@@ -114,7 +113,6 @@ const TestPage = () => {
   );
 };
 
-// Styled Components
 const TestContainer = styled.div`
   background-color: white;
   border-radius: var(--border-radius);
