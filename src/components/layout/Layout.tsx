@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Header from './Header'; // Same directory
+import Header from './Header';
 import Footer from './Footer';
 import styled from 'styled-components';
 
@@ -28,4 +28,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 };
 
 const MainContainer = styled.div`
-  display
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+  background-color: var(--background-color);
+`;
+
+export default Layout;
