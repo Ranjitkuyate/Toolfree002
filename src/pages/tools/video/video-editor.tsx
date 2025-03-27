@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout';
 import SEO from '@/components/SEO';
 import VideoEditor from '@/components/tools/video/VideoEditor';
 import AdBanner from '@/components/AdBanner';
