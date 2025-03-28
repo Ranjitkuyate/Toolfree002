@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { useAds } from '../components/ads/AdManager';
 import AdBanner from '../components/ads/AdBanner';
 import NativeAd from '../components/ads/NativeAd';
@@ -32,23 +33,33 @@ const SitemapPage = () => {
             <SectionTitle>Main Pages</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/">Home</LinkAnchor>
+                <Link href="/" legacyBehavior>
+                  <LinkAnchor>Home</LinkAnchor>
+                </Link>
                 <LinkDescription>Our main page with featured tools and latest updates</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/about">About Us</LinkAnchor>
+                <Link href="/about" legacyBehavior>
+                  <LinkAnchor>About Us</LinkAnchor>
+                </Link>
                 <LinkDescription>Learn about our mission and the team behind ToolsFree Online</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/contact">Contact</LinkAnchor>
+                <Link href="/contact" legacyBehavior>
+                  <LinkAnchor>Contact</LinkAnchor>
+                </Link>
                 <LinkDescription>Get in touch with our support team</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/privacy-policy">Privacy Policy</LinkAnchor>
+                <Link href="/privacy-policy" legacyBehavior>
+                  <LinkAnchor>Privacy Policy</LinkAnchor>
+                </Link>
                 <LinkDescription>Our commitment to protecting your privacy</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/terms-of-service">Terms of Service</LinkAnchor>
+                <Link href="/terms-of-service" legacyBehavior>
+                  <LinkAnchor>Terms of Service</LinkAnchor>
+                </Link>
                 <LinkDescription>Rules and guidelines for using our website</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -62,23 +73,33 @@ const SitemapPage = () => {
             <SectionTitle>Text Tools</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/tools/text/text-to-speech">Text to Speech</LinkAnchor>
+                <Link href="/tools/text/text-to-speech" legacyBehavior>
+                  <LinkAnchor>Text to Speech</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert written text to spoken words</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/text/word-counter">Word Counter</LinkAnchor>
+                <Link href="/tools/text/word-counter" legacyBehavior>
+                  <LinkAnchor>Word Counter</LinkAnchor>
+                </Link>
                 <LinkDescription>Count words, characters, and paragraphs in your text</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/text/text-case-converter">Text Case Converter</LinkAnchor>
+                <Link href="/tools/text/text-case-converter" legacyBehavior>
+                  <LinkAnchor>Text Case Converter</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert text between uppercase, lowercase, and title case</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/text/lorem-ipsum-generator">Lorem Ipsum Generator</LinkAnchor>
+                <Link href="/tools/text/lorem-ipsum-generator" legacyBehavior>
+                  <LinkAnchor>Lorem Ipsum Generator</LinkAnchor>
+                </Link>
                 <LinkDescription>Generate placeholder text for design mockups</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/text/text-diff-checker">Text Diff Checker</LinkAnchor>
+                <Link href="/tools/text/text-diff-checker" legacyBehavior>
+                  <LinkAnchor>Text Diff Checker</LinkAnchor>
+                </Link>
                 <LinkDescription>Compare two texts and highlight the differences</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -88,23 +109,33 @@ const SitemapPage = () => {
             <SectionTitle>Image Tools</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/tools/image/image-compressor">Image Compressor</LinkAnchor>
+                <Link href="/tools/image/image-compressor" legacyBehavior>
+                  <LinkAnchor>Image Compressor</LinkAnchor>
+                </Link>
                 <LinkDescription>Reduce image file size while maintaining quality</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/image/advanced-image-compressor">Advanced Image Compressor</LinkAnchor>
+                <Link href="/tools/image/advanced-image-compressor" legacyBehavior>
+                  <LinkAnchor>Advanced Image Compressor</LinkAnchor>
+                </Link>
                 <LinkDescription>Professional image compression with advanced options</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/image/image-converter">Image Converter</LinkAnchor>
+                <Link href="/tools/image/image-converter" legacyBehavior>
+                  <LinkAnchor>Image Converter</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert images between different formats</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/image/image-resizer">Image Resizer</LinkAnchor>
+                <Link href="/tools/image/image-resizer" legacyBehavior>
+                  <LinkAnchor>Image Resizer</LinkAnchor>
+                </Link>
                 <LinkDescription>Resize images to specific dimensions</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/image/image-cropper">Image Cropper</LinkAnchor>
+                <Link href="/tools/image/image-cropper" legacyBehavior>
+                  <LinkAnchor>Image Cropper</LinkAnchor>
+                </Link>
                 <LinkDescription>Crop images to remove unwanted areas</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -118,23 +149,33 @@ const SitemapPage = () => {
             <SectionTitle>Video Tools</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/tools/video/all-in-one-downloader">All-in-One Downloader</LinkAnchor>
+                <Link href="/tools/video/all-in-one-downloader" legacyBehavior>
+                  <LinkAnchor>All-in-One Downloader</LinkAnchor>
+                </Link>
                 <LinkDescription>Download videos from various platforms</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/video/video-editor">Video Editor</LinkAnchor>
+                <Link href="/tools/video/video-editor" legacyBehavior>
+                  <LinkAnchor>Video Editor</LinkAnchor>
+                </Link>
                 <LinkDescription>Basic video editing capabilities</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/video/enhanced-video-editor">Enhanced Video Editor</LinkAnchor>
+                <Link href="/tools/video/enhanced-video-editor" legacyBehavior>
+                  <LinkAnchor>Enhanced Video Editor</LinkAnchor>
+                </Link>
                 <LinkDescription>Advanced video editing with more features</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/video/video-compressor">Video Compressor</LinkAnchor>
+                <Link href="/tools/video/video-compressor" legacyBehavior>
+                  <LinkAnchor>Video Compressor</LinkAnchor>
+                </Link>
                 <LinkDescription>Reduce video file size while maintaining quality</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/video/video-converter">Video Converter</LinkAnchor>
+                <Link href="/tools/video/video-converter" legacyBehavior>
+                  <LinkAnchor>Video Converter</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert videos between different formats</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -148,23 +189,33 @@ const SitemapPage = () => {
             <SectionTitle>Document Tools</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/tools/document/pdf-compressor">PDF Compressor</LinkAnchor>
+                <Link href="/tools/document/pdf-compressor" legacyBehavior>
+                  <LinkAnchor>PDF Compressor</LinkAnchor>
+                </Link>
                 <LinkDescription>Reduce PDF file size while maintaining quality</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/document/pdf-merger">PDF Merger</LinkAnchor>
+                <Link href="/tools/document/pdf-merger" legacyBehavior>
+                  <LinkAnchor>PDF Merger</LinkAnchor>
+                </Link>
                 <LinkDescription>Combine multiple PDF files into one</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/document/pdf-splitter">PDF Splitter</LinkAnchor>
+                <Link href="/tools/document/pdf-splitter" legacyBehavior>
+                  <LinkAnchor>PDF Splitter</LinkAnchor>
+                </Link>
                 <LinkDescription>Split PDF files into multiple documents</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/document/pdf-to-image">PDF to Image</LinkAnchor>
+                <Link href="/tools/document/pdf-to-image" legacyBehavior>
+                  <LinkAnchor>PDF to Image</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert PDF pages to image files</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/document/image-to-pdf">Image to PDF</LinkAnchor>
+                <Link href="/tools/document/image-to-pdf" legacyBehavior>
+                  <LinkAnchor>Image to PDF</LinkAnchor>
+                </Link>
                 <LinkDescription>Convert images to PDF format</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -174,23 +225,33 @@ const SitemapPage = () => {
             <SectionTitle>New Tools</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/tools/baby-name-generator">Baby Name Generator</LinkAnchor>
+                <Link href="/tools/baby-name-generator" legacyBehavior>
+                  <LinkAnchor>Baby Name Generator</LinkAnchor>
+                </Link>
                 <LinkDescription>Generate unique baby names by combining letters from parents' names</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/ai-tools">AI Tools</LinkAnchor>
+                <Link href="/ai-tools" legacyBehavior>
+                  <LinkAnchor>AI Tools</LinkAnchor>
+                </Link>
                 <LinkDescription>Access powerful AI capabilities powered by Google Gemini</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/password-generator">Password Generator</LinkAnchor>
+                <Link href="/tools/password-generator" legacyBehavior>
+                  <LinkAnchor>Password Generator</LinkAnchor>
+                </Link>
                 <LinkDescription>Create strong, secure passwords</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/qr-code-generator">QR Code Generator</LinkAnchor>
+                <Link href="/tools/qr-code-generator" legacyBehavior>
+                  <LinkAnchor>QR Code Generator</LinkAnchor>
+                </Link>
                 <LinkDescription>Generate QR codes for websites, text, and more</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/tools/color-picker">Color Picker</LinkAnchor>
+                <Link href="/tools/color-picker" legacyBehavior>
+                  <LinkAnchor>Color Picker</LinkAnchor>
+                </Link>
                 <LinkDescription>Select and convert colors between different formats</LinkDescription>
               </LinkItem>
             </LinksList>
@@ -204,27 +265,39 @@ const SitemapPage = () => {
             <SectionTitle>Settings & Monetization</SectionTitle>
             <LinksList>
               <LinkItem>
-                <LinkAnchor href="/ad-settings">Ad Settings</LinkAnchor>
+                <Link href="/ad-settings" legacyBehavior>
+                  <LinkAnchor>Ad Settings</LinkAnchor>
+                </Link>
                 <LinkDescription>Customize your ad experience on our website</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/analytics-settings">Ad Analytics</LinkAnchor>
+                <Link href="/analytics-settings" legacyBehavior>
+                  <LinkAnchor>Ad Analytics</LinkAnchor>
+                </Link>
                 <LinkDescription>Track your ad performance and revenue</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/monetization-optimization">Monetization Optimization</LinkAnchor>
+                <Link href="/monetization-optimization" legacyBehavior>
+                  <LinkAnchor>Monetization Optimization</LinkAnchor>
+                </Link>
                 <LinkDescription>Strategies to maximize your website's revenue potential</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/performance-settings">Performance Settings</LinkAnchor>
+                <Link href="/performance-settings" legacyBehavior>
+                  <LinkAnchor>Performance Settings</LinkAnchor>
+                </Link>
                 <LinkDescription>Optimize website performance for better user experience</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/robots-settings">Robots.txt Settings</LinkAnchor>
+                <Link href="/robots-settings" legacyBehavior>
+                  <LinkAnchor>Robots.txt Settings</LinkAnchor>
+                </Link>
                 <LinkDescription>Configure search engine crawling settings</LinkDescription>
               </LinkItem>
               <LinkItem>
-                <LinkAnchor href="/sitemap-settings">Sitemap Settings</LinkAnchor>
+                <Link href="/sitemap-settings" legacyBehavior>
+                  <LinkAnchor>Sitemap Settings</LinkAnchor>
+                </Link>
                 <LinkDescription>Configure XML sitemap for better SEO</LinkDescription>
               </LinkItem>
             </LinksList>

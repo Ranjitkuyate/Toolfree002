@@ -35,7 +35,7 @@ const MainContainer = styled.div`
 
 const MainContent = styled.main`
   flex: 1;
-  background-color: var(--background-color);
+  background-color: #f5f7fa;
 `;
 
 export default Layout;

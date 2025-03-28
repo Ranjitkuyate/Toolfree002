@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <HeaderContent>
         <LogoContainer>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <Logo>
               <FaTools />
               <LogoText>ToolsFree</LogoText>
@@ -18,22 +18,22 @@ const Header: React.FC = () => {
         
         <Navigation>
           <NavItem>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <NavLink>Home</NavLink>
             </Link>
           </NavItem>
           <NavItem>
-            <Link href="/tools">
+            <Link href="/tools" legacyBehavior>
               <NavLink>Tools</NavLink>
             </Link>
           </NavItem>
           <NavItem>
-            <Link href="/about">
+            <Link href="/about" legacyBehavior>
               <NavLink>About</NavLink>
             </Link>
           </NavItem>
           <NavItem>
-            <Link href="/documentation">
+            <Link href="/documentation" legacyBehavior>
               <NavLink>Docs</NavLink>
             </Link>
           </NavItem>
